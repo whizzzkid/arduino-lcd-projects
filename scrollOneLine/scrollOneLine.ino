@@ -46,26 +46,10 @@ void setup() {
 }
 
 void loop() {
-  lcd.setCursor(scrollCursor, 0);
-  lcd.print(line1.substring(stringStart,stringStop));
-  lcd.setCursor(0, 1);
-  lcd.print(line2);
-  delay(300);
-  lcd.clear();
-  if(stringStart == 0 && scrollCursor > 0){
-    scrollCursor--;
-    stringStop++;
-  } else if (stringStart == stringStop){
-    stringStart = stringStop = 0;
-    scrollCursor = screenWidth;
-  } else if (stringStop == line1.length() && scrollCursor == 0) {
-    stringStart++;
-  } else {
-    stringStart++;
-    stringStop++;
-  }
+ 
  /*
- *If it doesnt work(roll just once or work only with text size > 16)....try this
+ *If it(code in master branch) doesnt work(roll just once or work only with text size > 16)....try this
+ */
   lcd.setCursor(scrollCursor, 0);
   lcd.print(line1.substring(stringStart,stringStop));
   lcd.setCursor(0, 1);
@@ -82,8 +66,4 @@ void loop() {
     stringStart++;
     stringStop++;
   }
- */
- 
- 
- 
 }
